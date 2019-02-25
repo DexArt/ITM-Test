@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Data{% endblock %}
+
+{% block body %}
+    <div class="site-wrap">
+        <div class="site-section">
+            <div class="container text-center" style="width: 100%; height: 300px">
+                <div class="col-md-4 text-center mb-4" style="width: 100%; height: 300px !important; max-width: 100% !important;">
+                    <div class="border p-4" style="height: 300px; display: flex; justify-content: space-between">
+                        <div id="subscribeData" style="float: left; text-align: left" class="col-md-4">
+                            <div id="user">
+                                <label class="label">
+                                    User
+                                </label>
+                                <div id="userData" style="text-transform: uppercase; color: black">
+                                    {{ user.firstname }} {{ user.lastname }}
+                                </div>
+                            </div>
+                            <div id="training">
+                                <label class="label">
+                                    Training
+                                </label>
+                                <div id="userData" style="text-transform: uppercase; color: black">
+                                    {{ training.name }}
+                                </div>
+                            </div>
+                            <div id="master">
+                                <label class="label">
+                                    Master
+                                </label>
+                                <div id="userData" style="text-transform: uppercase; color: black">
+                                    {{ training.masterName }}
+                                </div>
+                            </div>
+                        </div>
+                        <div id="form" style="width: 300px" class="col-md-5">
+                            {{ form_start(form, {attr: {class: 'form',id: "login-form",novalidate: 'novalidate'}}) }}
+                            <label class="form-check-label" for="not_type">
+                                Notification Type
+                            </label>
+                            {{ form_widget(form.notification_type, { 'attr': {'class': 'custom-select custom-select-lg mb-3 text-uppercase','id':'not_type', 'required':'required'} }) }}
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

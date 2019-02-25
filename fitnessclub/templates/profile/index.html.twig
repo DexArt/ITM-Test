@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="site-section">
+        <div class="container">
+            <div class="row image center" style="text-align: center">
+                <img style="margin-left: 180px" src="uploads/profile_photos/{{ imageName }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h2 class="site-section-heading text-center">My Trainings</h2>
+            </div>
+        </div>
+        <div class="container">
+            {% if group_trainings %}
+            <div class="row">
+                {% for group_training in group_trainings %}
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="border p-4 text-with-icon">
+                            <h2 class="h5" style="text-transform: uppercase">
+                                <strong>{{ group_training.training.name }}</strong>
+                            </h2>
+                            <p><a href="{{ path('viewUserGroupTraining',{'id':group_training.user_training_id}) }}">Show</a></p>
+                            <p>
+                                <a href="{{ path('editUserGroupTraining',{'id':group_training.user_training_id}) }}">Edit</a>
+                            </p>
+                            <p><a href="{{ path('removeUserGroupTraining',{'id':group_training.user_training_id}) }}">Remove</a>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <div class="alert alert-info text-center" role="alert">
+                        You dont have active trainings
+                    </div>
+
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

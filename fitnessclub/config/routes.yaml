@@ -1,0 +1,59 @@
+home:
+    path: /
+    controller: App\Controller\DefaultController::home
+
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::index
+
+addGroupTraining:
+    path: /admin/grouptraining/add
+    controller: App\Controller\GroupTrainingController::add
+
+showGroupTraining:
+    path: /grouptraining/view/{id}
+    controller: App\Controller\GroupTrainingController::view
+
+removeUserGroupTraining:
+    path: /profile/training/remove/{id}
+    controller: App\Controller\UserTrainingController::remove
+
+editUserGroupTraining:
+    path: /profile/training/edit/{id}
+    controller: App\Controller\UserTrainingController::edit
+
+viewUserGroupTraining:
+    path: /profile/training/view/{id}
+    controller: App\Controller\UserTrainingController::view
+
+subscribeGroupTraining:
+    path: /profile/subscribe/{id}
+    controller: App\Controller\UserTrainingController::subscribe
+
+editGroupTraining:
+    path: /grouptraining/edit/{id}
+    controller: App\Controller\GroupTrainingController::edit
+
+users:
+    path: /admin/users
+    controller: App\Controller\UserController::index
+
+addUser:
+    path: /admin/users/add
+    controller: App\Controller\UserController::add
+
+editUser:
+    path: /admin/users/edit/{id}
+    controller: App\Controller\UserController::edit
+
+profileEdit:
+    path: /profile/edit/{id}
+    controller: App\Controller\UserController::edit
+profile:
+    path: /profile
+    controller: App\Controller\ProfileController::index
+
+removeUser:
+    path: /admin/users/remove/{id}
+    controller: App\Controller\UserController::remove
+

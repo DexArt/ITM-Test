@@ -1,0 +1,32 @@
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host: localhost
+            port: 5672
+            user: 'guest'
+            password: 'guest'
+            vhost: '/'
+    producers:
+        send_email:
+            class: App\Producer\MailSenderProducer
+            connection:       default
+            exchange_options: { name: 'notification.v1.send_email', type: direct }
+
+        delayed_send_email:
+            class: App\Producer\MailSenderProducer
+            connection: default
+            exchange_options:
+                name: 'notification.v1.send_email_delayed_600000'
+                type: direct
+            queue_options:
+                name: 'notification.v1.send_email_delayed_600000'
+                arguments:
+                    x-message-ttl: ['I', 600000]
+                    x-dead-letter-exchange: ['S', 'notification.v1.send_email']
+
+    consumers:
+        send_email:
+            connection:       default
+            exchange_options: { name: 'notification.v1.send_email', type: direct }
+            queue_options:    { name: 'notification.v1.send_email' }
+            callback:         mail_sender_service

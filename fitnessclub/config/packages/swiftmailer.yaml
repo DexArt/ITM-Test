@@ -1,0 +1,10 @@
+swiftmailer:
+    transport:        gmail
+    username:         fitness.club.itm2019@gmail.com
+    password:         ItmTradeRoot
+    host:             localhost
+    port:             465
+    encryption:       ssl
+    auth-mode:        login
+    stream_options:
+

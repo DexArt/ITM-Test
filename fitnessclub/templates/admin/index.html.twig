@@ -1,0 +1,21 @@
+{% extends 'adminBase.html.twig' %}
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                {% for group_training in group_trainings %}
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="border p-4 text-with-icon">
+                            <h2 class="h5" style="text-transform: uppercase"><strong>{{ group_training.name }}</strong></h2>
+                            <p><a href="{{ path('showGroupTraining',{'id':group_training.id}) }}">View</a></p>
+                            <p><a href="{{ path('editGroupTraining',{'id':group_training.id}) }}">Edit</a></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

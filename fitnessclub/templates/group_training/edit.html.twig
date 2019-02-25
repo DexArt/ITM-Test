@@ -1,0 +1,52 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}GroupTraining{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    {{ form_start(form, {attr: {class: 'form',id: "login-form",novalidate:'novalidate'}}) }}
+                    <h3 class="text-center text-info">Edit</h3>
+                    <div class="form-group">
+                        {% if form_errors(form.name) %}
+                            <div class="alert alert-danger" role="alert" style="height: 50px">
+                                {{ form_errors(form.name) }}
+                            </div>
+                        {% endif %}
+                        <label for="trainingName" class="text-info">Training name</label><br>
+                        {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                    <div class="form-group">
+                        {% if form_errors(form.master_name) %}
+                            <div class="alert alert-danger" role="alert" style="height: 50px">
+                                {{ form_errors(form.master_name) }}
+                            </div>
+                        {% endif %}
+                        <label for="masterName" class="text-info">Master name</label><br>
+                        {{ form_widget(form.master_name, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="text-info">Description:</label><br>
+                        {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+
+                    <div class="form-group">
+                        {% if form_errors(form.is_expired) %}
+                            <div class="alert alert-danger" role="alert" style="height: 50px">
+                                {{ form_errors(form.is_expired) }}
+                            </div>
+                        {% endif %}
+                        <label class="form-check-label" for="isAuthorised">
+                            Is Expired
+                        </label>
+                        {{ form_widget(form.is_expired, { 'attr': {'class': 'form-input', 'required':'required'} }) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

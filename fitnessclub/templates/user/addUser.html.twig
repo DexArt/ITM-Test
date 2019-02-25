@@ -1,0 +1,6 @@
+{% extends 'adminBase.html.twig' %}
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    {{ include('user/userEditForm.html.twig', { 'form': form}) }}
+{% endblock %}
